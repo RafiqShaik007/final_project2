@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main id="main-tag">
+
+    </main>
+
+    <script>
+
+        let mt =  document.getElementById('main-tag') 
+
+       let hd = document.createElement('header')
+       console.log(hd)
+       
+       hd.style.border = '2px solid black'
+       hd.style.height = '100px'
+       hd.style.backgroundColor = 'blue'
+       hd.style.color = 'white'
+       hd.style.fontSize = '40px'
+       hd.style.display = 'flex'
+       hd.style.justifyContent = 'space-around'
+       hd.style.alignItems = 'center'
+
+       let btn1 = document.createElement('button')
+
+       btn1.style.backgroundColor = 'white'
+       btn1.style.height = '40px'
+       btn1.style.width = '200px'
+
+       btn1.innerText = 'Login'
+
+       hd.appendChild(btn1)
+
+       let btn2 = document.createElement('button')
+
+       btn2.style.backgroundColor = 'white'
+       btn2.style.height = '40px'
+       btn2.style.width = '200px'
+
+       btn2.innerText = 'Register'
+
+       hd.appendChild(btn2)
+       
+
+       mt.appendChild(hd)
+
+
+     let sec = document.createElement('section')
+
+     sec.innerText = 'this is section tag'
+     sec.style.height = '80vh'
+     sec.style.border = '2px solid black'
+     sec.style.backgroundColor = 'grey'
+
+     mt.appendChild(sec)
+
+
+     let ft = document.createElement('footer')
+
+     ft.innerHTML = 'This is Footer'
+     ft.style.height = '10vh'
+     ft.style.backgroundColor = 'yellow'
+     
+
+     mt.appendChild(ft)
+
+
+
+       
+
+        
+
+    </script>
+
+    
+</body>
+</html>

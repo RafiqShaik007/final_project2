@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <main id="main-tag">
+
+    </main>
+
+    <div class="even"></div>
+    <div class="odd"></div>
+    <div class="even"></div>
+    <div class="odd"></div>
+    <div class="zero"></div>
+
+    <section></section>
+
+    <script>
+        let a = document.querySelector('#main-tag')
+
+        console.log(a)
+        a.style.backgroundColor = 'blue'
+        a.innerText = 'main tag'
+        a.style.height = '200px'
+
+
+        let b = document.querySelector('.even')
+
+        console.log(b)
+        b.style.backgroundColor = 'red'
+        b.innerText = 'hello'
+
+        let c = document.querySelector('.zero')
+        c.innerText = 'ONe element Zero'
+        c.style.backgroundColor = 'yellow'
+
+        let d = document.querySelector('section')
+        d.style.height = '200px'
+        d.style.backgroundColor = 'purple'
+
+    </script>
+</body>
+</html>

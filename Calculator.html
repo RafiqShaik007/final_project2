@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <style>
+      :root {
+        --bg-color: whitesmoke;
+        --text-color: black;
+        --design-color: red;
+      }
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      body {
+        height: 100vh;
+        width: 100%;
+        /* border: 2px solid black; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--bg-color);
+        transition: 1s;
+      }
+      article,
+      main {
+        height: 90%;
+        width: 45%;
+        /* border: 2px solid red; */
+      }
+      main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      section {
+        height: 95%;
+        width: 45%;
+        /* border: 2px solid blue; */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        border-radius: 50px;
+        outline: none;
+        box-shadow: 5px 5px 5px grey;
+        border: 0.2px solid grey;
+        position: relative;
+      }
+
+      @property --angle {
+        syntax: "<angle>";
+        inherits: false;
+        initial-value: 0deg;
+      }
+
+      section::after {
+        --angle: 0deg;
+        content: "";
+        height: 100%;
+        width: 100%;
+        /* background-color: blue; */
+        position: absolute;
+        z-index: -1;
+        padding: 10px;
+        border-radius: inherit;
+        background-image: conic-gradient(
+          from var(--angle),
+          transparent 70%,
+          var(--design-color)
+        );
+
+        animation-name: rotate;
+        animation-duration: 3s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+
+
+      @keyframes rotate{
+        0%{
+          --angle: 0deg;
+        }
+        100%{
+          --angle: 360deg;
+        }
+      }
+
+      section input {
+        height: 25%;
+        width: 90%;
+        font-size: 30px;
+        outline: none;
+        border: none;
+        background-color: black;
+        color: white;
+        text-align: right;
+        padding-right: 20px;
+      }
+
+      section div {
+        height: 12%;
+        width: 90%;
+        /* border: 2px solid yellow; */
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      section div button {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: none;
+        background-color: grey;
+        color: white;
+      }
+      section div .cement {
+        background-color: whitesmoke;
+        color: black;
+      }
+      section div .orange {
+        background-color: orange;
+      }
+      section div .capsule {
+        height: 50px;
+        width: 110px;
+        border-radius: 30px;
+      }
+
+      article {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 30px;
+        padding-left: 100px;
+        padding-right: 50px;
+        color: var(--text-color);
+      }
+      article h1 {
+        font-size: 50px;
+      }
+      article p {
+        font-size: 20px;
+      }
+      article h1::first-letter {
+        font-size: 150px;
+        color: var(--design-color);
+      }
+      article button {
+        height: 50px;
+        width: 200px;
+        border: none;
+        background-color: var(--design-color);
+        border-radius: 30px;
+        color: white;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+  <body>
+    <article>
+      <h1>Calculator</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perferendis
+        voluptate quas praesentium eius, aperiam voluptatum molestiae! Eum
+        voluptates corrupti hic velit, consectetur error harum, id est, quam
+        eius nulla qui?
+      </p>
+      <button onclick="change_theme()" id="thb">Dark Mode</button>
+    </article>
+    <main>
+      <section>
+        <input type="text" id="output" />
+        <div>
+          <button class="cement capsule" onclick="clear_data()">AC</button>
+          <button class="cement" onclick="remove_num()">DEL</button>
+
+          <button class="orange" onclick="add_value(this)">+</button>
+        </div>
+        <div>
+          <button onclick="add_value(this)">7</button>
+          <button onclick="add_value(this)">8</button>
+          <button onclick="add_value(this)">9</button>
+          <button class="orange" onclick="add_value(this)">*</button>
+        </div>
+        <div>
+          <button onclick="add_value(this)">4</button>
+          <button onclick="add_value(this)">5</button>
+          <button onclick="add_value(this)">6</button>
+          <button class="orange" onclick="add_value(this)">-</button>
+        </div>
+        <div>
+          <button onclick="add_value(this)">1</button>
+          <button onclick="add_value(this)">2</button>
+          <button onclick="add_value(this)">3</button>
+          <button class="orange" onclick="add_value(this)">+</button>
+        </div>
+        <div>
+          <button class="capsule" onclick="add_value(this)">0</button>
+          <button onclick="add_value(this)">.</button>
+          <button class="orange" onclick="result()">=</button>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      let op = document.getElementById("output");
+
+      let inp_result = false;
+
+      let tb = document.getElementById('thb')
+      console.log(tb)
+
+      // console.log(op)
+
+      function change_theme() {
+        let sound = new Audio('./knife.mp3');
+        sound.play()
+        let root = document.documentElement;
+
+        let bgcolor = getComputedStyle(root).getPropertyValue("--bg-color");
+
+        console.log(bgcolor);
+        if (bgcolor === "whitesmoke") {
+          tb.innerText = 'Light Mode'
+          root.style.setProperty("--bg-color", "black");
+          root.style.setProperty("--text-color", "white");
+          root.style.setProperty("--design-color", "blue");
+        } else {
+          tb.innerText = 'Dark Mode'
+          root.style.setProperty("--bg-color", "whitesmoke");
+          root.style.setProperty("--text-color", "black");
+          root.style.setProperty("--design-color", "red");
+        }
+      }
+
+      function add_value(e) {
+        if (inp_result === true) {
+          op.value = "";
+          inp_result = false;
+        }
+        console.log(e);
+        console.log(e.innerText);
+        let previous_value = op.value;
+        op.value = previous_value + e.innerText;
+      }
+
+      function clear_data() {
+        op.value = "";
+      }
+
+      function result() {
+        op.value = eval(op.value);
+        inp_result = true;
+      }
+
+      function remove_num() {
+        op.value = op.value.slice(0, op.value.length - 1);
+      }
+    </script>
+  </body>
+</html>

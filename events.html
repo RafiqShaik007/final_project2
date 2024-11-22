@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 300px;
+            width: 500px;
+            border: 2px solid black;
+            font-size: 30px;
+            text-align: center;
+            align-content: center;
+            margin-left: 300px;
+        }
+        select{
+            height: 50px;
+            width: 150px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <select name="" id="" onchange="change_color(this)">
+        <option value="blue">blue</option>
+        <option value="green">green</option>
+        <option value="red">red</option>
+    </select>
+
+
+    <div id="ce">
+
+        Checking Events 
+
+    </div>
+
+
+    <script>
+
+        let ce = document.getElementById('ce')
+        // console.log(ce)
+
+        function normal(){
+            ce.style.backgroundColor = 'white'
+            ce.style.color = 'black'
+            
+        }
+
+        function change_color(tag){
+
+            console.log(tag)
+            console.log(tag.value)
+            let colour = tag.value
+            ce.style.backgroundColor = colour
+            ce.style.color = 'white'
+
+        }
+        
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <section></section>
+    <div></div>
+    <article></article>
+    <section></section>
+    <div></div>
+    <article></article>
+    <section></section>
+    <div></div>
+    <article></article>
+    <section></section>
+    <div></div>
+    <article></article>
+    <section></section>
+    <div></div>
+    <article></article>
+
+    <footer></footer>
+
+    <script>
+
+        let sec = document.getElementsByTagName('section')
+
+        // console.log(sec)
+
+        for(let i of sec){
+            
+            i.innerText = 'This is Section Tag'
+            i.style.height = '100px'
+            i.style.backgroundColor = 'blue'
+        }
+
+        let dv = document.getElementsByTagName('div')
+
+        // console.log(dv)
+
+        for(let i of dv){
+            i.style.height = '50px'
+            i.innerText = 'Div Tag '
+            i.style.backgroundColor = 'red'
+        }
+
+        let ar = document.getElementsByTagName('article')
+
+        console.log(ar)
+
+        for(let i of ar){
+            i.style.height = '200px'
+            i.style.backgroundColor = 'aqua'
+        }
+
+        let ft = document.getElementsByTagName('footer')
+
+        console.log(ft)
+        
+    </script>
+  </body>
+</html>
